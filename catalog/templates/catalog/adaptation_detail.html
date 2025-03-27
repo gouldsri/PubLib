@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ adaptation.title }}</h1>
+  <h1>Adapted from: {{ adaptation.book }}</h1>
+
+  <h2>Media Type:</h2>
+  <p>{{ adaptation.media_type }}</p>
+
+  <h2>Release Date:</h2>
+  <p>{{ adaptation.release_date }}</p>
+
+  <h2>Creator</h2>
+  <ul>
+    {% for creator in adaptation.creator.all %}
+      <li>{{ creator }}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

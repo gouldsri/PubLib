@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Adaptation List</h1>
+  {% if adaptation_list %}
+    <ul>
+      {% for adaptation in adaptation_list %}
+      <li>
+        <a href="{{ adaptation.get_absolute_url }}">{{ adaptation }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no adaptations in the library.</p>
+  {% endif %}
+{% endblock %}
