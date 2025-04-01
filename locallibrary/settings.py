@@ -1,8 +1,15 @@
 from pathlib import Path
 import os
 import sys
+import environ
 from django.core.management.utils import get_random_secret_key
 import dj_database_url
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
+# Load environment variables
+env.read_env(str(BASE_DIR / ".env"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,7 +25,6 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-
 
 # Application definition
 
